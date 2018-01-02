@@ -12,13 +12,14 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
 
     @IBOutlet weak var dacoolTableView: UITableView!
     
-    var emojis = ["🏈","⛸","😃","😎","😍","💩"]
+    var emojis : [Emoji] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         dacoolTableView.dataSource = self
-        dacoolTableView.delegate = self 
+        dacoolTableView.delegate = self
+        emojis = makeEmojiArray()
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,7 +31,8 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = UITableViewCell()
-        cell.textLabel?.text = emojis[indexPath.row]
+        let emoji = emojis[indexPath.row]
+        cell.textLabel?.text = emoji.stringEmoji
         return cell
         
     }
@@ -43,8 +45,34 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let defVC = segue.destination as! DefinitionViewController
-        defVC.emoji = sender as! String
+        defVC.emoji = sender as! Emoji
     }
+    
+    func makeEmojiArray() -> [Emoji] {
+        
+        let emoji1 = Emoji()
+        emoji1.stringEmoji = "🏈"
+        emoji1.birthyear = 2010
+        emoji1.category = "ball"
+        emoji1.definition = "football"
+        
+        let emoji2 = Emoji()
+        emoji2.stringEmoji = "⛸"
+        emoji2.birthyear = 2011
+        emoji2.category = "ice"
+        emoji2.definition = "ice skate"
+        
+        let emoji3 = Emoji()
+        emoji3.stringEmoji = "😃"
+        emoji3.birthyear = 2012
+        emoji3.category = "face"
+        emoji3.definition = "happy face"
+        
+        return [emoji1, emoji2, emoji3]
+    
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

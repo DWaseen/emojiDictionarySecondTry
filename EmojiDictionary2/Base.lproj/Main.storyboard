@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,8 +58,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a lovely church" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ9-OE-iDK">
-                                <rect key="frame" x="103" y="363" width="169" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIg-Xz-k8V">
+                                <rect key="frame" x="152" y="444" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srn-xO-Zpg">
+                                <rect key="frame" x="152" y="494" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This is a lovely church" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ9-OE-iDK">
+                                <rect key="frame" x="103" y="379" width="169" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -65,7 +79,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Srn-xO-Zpg" firstAttribute="firstBaseline" secondItem="ZIg-Xz-k8V" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="5QD-WW-89X"/>
+                            <constraint firstItem="ZIg-Xz-k8V" firstAttribute="centerX" secondItem="Xe7-MG-cBK" secondAttribute="centerX" id="AAc-Hs-vO9"/>
+                            <constraint firstItem="Srn-xO-Zpg" firstAttribute="centerX" secondItem="Xe7-MG-cBK" secondAttribute="centerX" id="Hs3-Ed-odJ"/>
                             <constraint firstItem="rZ9-OE-iDK" firstAttribute="top" secondItem="zjx-TH-MR7" secondAttribute="bottom" constant="20" id="kdE-Yh-6aU"/>
+                            <constraint firstItem="ZIg-Xz-k8V" firstAttribute="top" secondItem="rZ9-OE-iDK" secondAttribute="bottom" constant="41" id="rZI-U5-hwu"/>
                             <constraint firstItem="zjx-TH-MR7" firstAttribute="centerX" secondItem="Xe7-MG-cBK" secondAttribute="centerX" id="rfg-FD-4Qo"/>
                             <constraint firstItem="rZ9-OE-iDK" firstAttribute="centerX" secondItem="Xe7-MG-cBK" secondAttribute="centerX" id="wFe-8O-yvX"/>
                             <constraint firstItem="zjx-TH-MR7" firstAttribute="top" secondItem="uWH-9s-vHZ" secondAttribute="top" constant="40" id="z4j-mR-YGt"/>
@@ -73,6 +91,8 @@
                         <viewLayoutGuide key="safeArea" id="uWH-9s-vHZ"/>
                     </view>
                     <connections>
+                        <outlet property="birthyearLabel" destination="Srn-xO-Zpg" id="ssU-Gq-Vh6"/>
+                        <outlet property="categoryLabel" destination="ZIg-Xz-k8V" id="Rnk-Ku-pNT"/>
                         <outlet property="defLabel" destination="rZ9-OE-iDK" id="dFK-VV-rY2"/>
                         <outlet property="emojiLabel" destination="zjx-TH-MR7" id="F0P-jH-ZSA"/>
                     </connections>
